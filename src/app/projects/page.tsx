@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <section className="container-site pb-16 pt-10 text-center md:pb-20 md:pt-14 md:text-left">
-      <div className="mb-10 max-w-2xl md:mb-12">
+      <div className="mx-auto mb-10 max-w-2xl text-center md:mb-12">
         <ScrollReveal>
-          <h1 className="text-[40px] font-medium leading-none tracking-tight md:text-[64px]">
+          <h1 className="section-heading text-[40px] leading-none tracking-tight md:text-[64px]">
             Projects
           </h1>
         </ScrollReveal>

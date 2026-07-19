@@ -60,7 +60,7 @@ export function Navigation() {
     <>
       <div className="relative z-50 w-full pt-8 md:pt-10">
         <div className="container-site grid grid-cols-[1fr_auto_1fr] items-center">
-          <Logo className="col-start-2 justify-self-center md:col-start-1 md:justify-self-start" />
+          <Logo className="col-start-2 justify-self-center" />
           <ThemeToggle className="col-start-3 justify-self-end" />
         </div>
       </div>

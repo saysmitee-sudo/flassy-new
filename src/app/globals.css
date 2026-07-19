@@ -5,7 +5,7 @@
 :root {
   --background: #ffffff;
   --foreground: #000000;
-  --foreground-muted: #6b6b6b;
+  --foreground-muted: #5c5c5c;
   --surface: #f5f5f5;
   --surface-elevated: #ffffff;
   --border: #e5e5e5;
@@ -30,12 +30,19 @@
   --card-radius: 32px;
   --nav-radius: 999px;
   --color-scheme: light;
+  --heading-gradient: linear-gradient(
+    105deg,
+    var(--foreground) 0%,
+    var(--primary) 38%,
+    var(--accent-lavender) 62%,
+    var(--foreground) 100%
+  );
 }
 
 .dark {
   --background: #000000;
   --foreground: #ffffff;
-  --foreground-muted: #9a9a9a;
+  --foreground-muted: #757575;
   --surface: #111111;
   --surface-elevated: #161616;
   --border: #2a2a2a;
@@ -89,8 +96,31 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-display), system-ui, sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.section-heading {
+  font-weight: 700;
+  font-style: italic;
+  color: var(--foreground);
+}
+
+@media (min-width: 768px) {
+  .section-heading {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+    text-align: center;
+  }
 }
 
 ::selection {
@@ -132,7 +162,7 @@ body {
 }
 
 .hero-title {
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -0.04em;
   line-height: 0.92;
 }
@@ -140,13 +170,7 @@ body {
 .hero-gradient {
   position: relative;
   display: inline-block;
-  background: linear-gradient(
-    105deg,
-    var(--foreground) 0%,
-    var(--primary) 38%,
-    var(--accent-lavender) 62%,
-    var(--foreground) 100%
-  );
+  background: var(--heading-gradient);
   background-size: 200% 100%;
   background-clip: text;
   -webkit-background-clip: text;

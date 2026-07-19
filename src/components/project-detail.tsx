@@ -48,7 +48,7 @@ export function ProjectDetail({
       </motion.p>
 
       <motion.h1
-        className="mt-3 text-[48px] font-medium leading-none tracking-tight md:text-[84px]"
+        className="section-heading mt-3 text-[48px] leading-none tracking-tight md:text-[84px]"
         initial={reduceMotion ? false : { opacity: 0, y: 28 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.65, delay: 0.06, ease }}
@@ -144,7 +144,7 @@ export function ProjectDetail({
 
       <div className="mt-12 grid gap-8 md:mt-16 md:grid-cols-[1fr_1.2fr] md:gap-16">
         <ScrollReveal>
-          <h2 className="text-[28px] font-medium md:text-[32px]">Overview</h2>
+          <h2 className="text-[28px] font-semibold tracking-tight md:text-[36px]">Overview</h2>
         </ScrollReveal>
         <div className="space-y-6">
           {project.body.map((paragraph, index) => (

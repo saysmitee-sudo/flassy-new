@@ -60,8 +60,10 @@ export function ProcessSteps() {
               whileHover={reduceMotion ? undefined : { y: -4 }}
               transition={{ type: "spring", stiffness: 320, damping: 26 }}
             >
-              <h3 className="text-[24px] font-medium md:text-[28px]">{step.title}</h3>
-              <p className="mt-3 text-[16px] leading-relaxed text-foreground-muted">
+              <h3 className="text-[26px] font-semibold tracking-tight md:text-[30px]">
+                {step.title}
+              </h3>
+              <p className="mt-4 text-[16px] leading-relaxed text-foreground-muted">
                 {step.description}
               </p>
             </motion.article>

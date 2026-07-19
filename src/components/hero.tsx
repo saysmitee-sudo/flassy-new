@@ -11,6 +11,7 @@ import {
 } from "motion/react";
 import { useRef } from "react";
 import { Magnetic } from "@/components/magnetic";
+import { scrollToElement } from "@/lib/utils";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -99,6 +100,10 @@ export function Hero() {
             transition={{ delay: 0.5, duration: 0.5, ease }}
             whileHover={reduceMotion ? undefined : { scale: 1.04 }}
             whileTap={reduceMotion ? undefined : { scale: 0.96 }}
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToElement("projects", reduceMotion);
+            }}
           >
             Scroll down
             <motion.svg

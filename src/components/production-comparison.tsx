@@ -35,7 +35,7 @@ function ComparisonColumn({
     >
       <h3
         className={cn(
-          "text-[15px] font-medium leading-tight md:text-[24px]",
+          "text-[16px] font-semibold leading-tight tracking-tight md:text-[26px]",
           highlight ? "text-foreground" : "text-foreground-muted",
         )}
       >
@@ -75,7 +75,7 @@ export function ProductionComparison() {
   return (
     <section className="container-site pb-16 text-center md:pb-20 md:text-left">
       <ScrollReveal>
-        <h2 className="mx-auto max-w-2xl text-[32px] font-medium leading-none md:mx-0 md:max-w-none md:text-[48px]">
+        <h2 className="section-heading mx-auto max-w-2xl text-[36px] leading-none tracking-tight md:max-w-none md:text-[52px]">
           {title}
         </h2>
       </ScrollReveal>

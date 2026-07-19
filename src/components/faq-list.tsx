@@ -32,7 +32,7 @@ export function FaqList({
               onClick={() => setOpenIndex(open ? null : index)}
             >
               <motion.span
-                className="text-[18px] font-medium md:text-[24px]"
+                className="text-[18px] font-semibold tracking-tight md:text-[24px]"
                 whileHover={reduceMotion ? undefined : { x: 4 }}
                 transition={{ type: "spring", stiffness: 400, damping: 28 }}
               >

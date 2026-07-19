@@ -90,7 +90,7 @@ export function ProjectCard({
       </div>
 
       <div className="mt-4 flex flex-col items-center gap-1 text-center md:mt-5 md:items-start md:text-left">
-        <h3 className="text-[18px] font-medium transition-transform duration-300 ease-out group-hover:translate-x-1 md:text-[20px]">
+        <h3 className="text-[18px] font-semibold tracking-tight transition-transform duration-300 ease-out group-hover:translate-x-1 md:text-[20px]">
           {project.title}
         </h3>
         <p className="text-[14px] text-foreground-muted md:text-[16px]">{project.category}</p>

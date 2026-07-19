@@ -82,11 +82,13 @@ export function ProjectCarousel({ projects }: { projects: readonly Project[] }) 
 
   return (
     <section id="projects" className="scroll-mt-24 pb-16 md:pb-20">
-      <div className="container-site mb-8 flex flex-col items-center gap-6 text-center md:mb-10 md:flex-row md:items-end md:justify-between md:text-left">
-        <ScrollReveal className="max-w-md">
-          <h2 className="text-[32px] font-medium leading-none md:text-[40px]">Projects</h2>
+      <div className="container-site mb-8 flex flex-col items-center gap-6 text-center md:mb-10 md:grid md:grid-cols-[1fr_auto_1fr] md:items-center">
+        <ScrollReveal className="md:col-start-2">
+          <h2 className="section-heading text-[36px] leading-none tracking-tight md:text-[44px]">
+            Projects
+          </h2>
         </ScrollReveal>
-        <ScrollReveal delay={0.08} className="hidden md:block">
+        <ScrollReveal delay={0.08} className="hidden md:col-start-3 md:block md:justify-self-end">
           <MoreLink className="inline-flex items-center gap-2 text-[16px] transition-opacity hover:opacity-70" />
         </ScrollReveal>
       </div>

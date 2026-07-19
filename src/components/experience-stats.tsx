@@ -55,11 +55,11 @@ export function ExperienceStats() {
                   whileHover={reduceMotion ? undefined : { y: -4 }}
                   transition={{ type: "spring", stiffness: 320, damping: 24 }}
                 >
-                  <p className="text-[32px] font-medium leading-none tracking-tight md:text-[40px]">
+                  <p className="text-[36px] font-semibold leading-none tracking-tight md:text-[44px]">
                     <AnimatedValue value={stat.value} />
                   </p>
                   <motion.p
-                    className="mt-2 text-[14px] leading-relaxed text-foreground-muted md:text-[16px]"
+                    className="mt-3 text-[14px] leading-relaxed text-foreground-muted md:text-[16px]"
                     initial={reduceMotion ? false : { opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
