@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+  --foreground-muted: #6b6b6b;
+  --surface: #f5f5f5;
+  --surface-elevated: #ffffff;
+  --border: #e5e5e5;
+  --nav-bg: #000000;
+  --nav-border: rgba(255, 255, 255, 0.12);
+  --nav-fg: #ffffff;
+  --nav-active-bg: #ffffff;
+  --nav-active-fg: #000000;
+  --pill-border: #000000;
+  --footer-cta-bg: transparent;
+  --input-bg: #f5f5f5;
+  --input-border: #e5e5e5;
+  --input-placeholder: #9a9a9a;
+  --primary: #9b43f3;
+  --accent-orange: #ed7615;
+  --accent-lavender: #6e3cf5;
+  --accent-sussie: #38e1f1;
+  --accent-blue: #0082ff;
+  --success: #29ae29;
+  --warning: #ffc62a;
+  --error: #ef4444;
+  --card-radius: 32px;
+  --nav-radius: 999px;
+  --color-scheme: light;
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #ffffff;
+  --foreground-muted: #9a9a9a;
+  --surface: #111111;
+  --surface-elevated: #161616;
+  --border: #2a2a2a;
+  --nav-bg: #161616;
+  --nav-border: rgba(255, 255, 255, 0.1);
+  --nav-fg: #ffffff;
+  --nav-active-bg: #ffffff;
+  --nav-active-fg: #000000;
+  --pill-border: #ffffff;
+  --input-bg: #111111;
+  --input-border: #2a2a2a;
+  --input-placeholder: #6b6b6b;
+  --color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-border: var(--border);
+  --color-nav-bg: var(--nav-bg);
+  --color-nav-border: var(--nav-border);
+  --color-nav-fg: var(--nav-fg);
+  --color-nav-active-bg: var(--nav-active-bg);
+  --color-nav-active-fg: var(--nav-active-fg);
+  --color-pill-border: var(--pill-border);
+  --color-input-bg: var(--input-bg);
+  --color-input-border: var(--input-border);
+  --color-input-placeholder: var(--input-placeholder);
+  --color-primary: var(--primary);
+  --color-accent-orange: var(--accent-orange);
+  --color-accent-lavender: var(--accent-lavender);
+  --color-accent-sussie: var(--accent-sussie);
+  --color-accent-blue: var(--accent-blue);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --font-sans: var(--font-display);
+  --radius-card: var(--card-radius);
+  --radius-nav: var(--nav-radius);
+}
+
+html {
+  color-scheme: var(--color-scheme);
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--primary);
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.container-site {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+@media (min-width: 768px) {
+  .container-site {
+    padding-inline: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-site {
+    padding-inline: 112px;
+  }
+}
+
+.hero-title {
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+}
+
+.hero-gradient {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(
+    105deg,
+    var(--foreground) 0%,
+    var(--primary) 38%,
+    var(--accent-lavender) 62%,
+    var(--foreground) 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: hero-shimmer 8s ease-in-out infinite;
+}
+
+@keyframes hero-shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-gradient {
+    animation: none;
+    background: none;
+    color: var(--foreground);
+    -webkit-text-fill-color: unset;
+  }
+}
