@@ -34,14 +34,14 @@ export function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="container-site relative overflow-hidden pb-12 pt-8 text-center md:pb-16 md:pt-12 md:text-left"
+      className="container-site relative overflow-x-clip pb-12 pt-8 text-center md:pb-16 md:pt-12 md:text-left"
       onPointerMove={(e) => {
         if (reduceMotion) return;
         const rect = e.currentTarget.getBoundingClientRect();
         const px = (e.clientX - rect.left) / rect.width - 0.5;
         const py = (e.clientY - rect.top) / rect.height - 0.5;
-        mx.set(px * 18);
-        my.set(py * 12);
+        mx.set(px * 14);
+        my.set(py * 10);
       }}
       onPointerLeave={() => {
         mx.set(0);
@@ -50,7 +50,7 @@ export function Hero() {
     >
       <motion.div style={{ y, opacity }} className="relative">
         <motion.h1
-          className="hero-title mx-auto max-w-[11ch] text-[48px] md:mx-0 md:max-w-none md:text-[88px] lg:text-[112px] xl:text-[128px]"
+          className="hero-title mx-auto w-full text-[clamp(3rem,13vw,3.75rem)] md:mx-0 md:text-[clamp(4rem,6.5vw,5.75rem)] lg:text-[clamp(4.75rem,5.8vw,6.5rem)] xl:text-[6.75rem]"
           style={reduceMotion ? undefined : { transform: titleTransform }}
         >
           <span className="block">
@@ -60,33 +60,34 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.05, ease }}
             >
-              Visual
+              We make
             </motion.span>{" "}
+            <br className="md:hidden" aria-hidden />
             <motion.span
-              className="inline-block text-[1.08em] font-semibold italic leading-none tracking-tight"
+              className="inline-block"
               initial={reduceMotion ? false : { opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.75, delay: 0.14, ease }}
+              transition={{ duration: 0.75, delay: 0.12, ease }}
             >
               content
             </motion.span>
           </span>
-          <span className="mt-[0.08em] block">
+          <span className="mt-[0.06em] block">
             <motion.span
               className="inline-block text-foreground-muted"
               initial={reduceMotion ? false : { opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.75, delay: 0.22, ease }}
+              transition={{ duration: 0.75, delay: 0.18, ease }}
             >
-              for
+              that
             </motion.span>{" "}
             <motion.span
-              className="hero-gradient inline-block"
+              className="hero-gradient inline-block italic"
               initial={reduceMotion ? false : { opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.75, delay: 0.3, ease }}
+              transition={{ duration: 0.75, delay: 0.26, ease }}
             >
-              business
+              sells
             </motion.span>
           </span>
         </motion.h1>
@@ -134,8 +135,8 @@ export function Hero() {
         transition={{ delay: 0.4, duration: 0.55, ease }}
       >
         <p className="max-w-md text-[16px] leading-relaxed text-foreground-muted md:ml-auto md:text-right md:text-[18px]">
-          Classic shoots mean crews, locations, and weeks of waiting. We deliver the same visual
-          quality with AI — faster, at a lower cost, and easy to update whenever you need.
+          Scroll-stopping photo, video, and AI avatars that turn attention into sales —
+          delivered in days, not weeks.
         </p>
       </motion.div>
     </section>

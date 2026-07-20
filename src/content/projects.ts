@@ -23,7 +23,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "streetwear",
-    title: "Streetwear",
+    title: "Fashion lookbook",
     category: "Fashion · Photo",
     accent: "lavender",
     featured: true,
@@ -51,7 +51,7 @@ export const projects: Project[] = [
   },
   {
     slug: "tidal",
-    title: "Tidal",
+    title: "Jewelry campaign",
     category: "Jewelry · Video",
     accent: "sussie",
     featured: true,

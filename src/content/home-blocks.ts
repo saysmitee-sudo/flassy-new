@@ -1,23 +1,35 @@
-export const productionComparison = {
-  title: "Why we're better",
-  classic: {
-    label: "Classic shoot",
-    items: [
-      "Weeks of planning, crew, and location booking",
-      "High cost for every reshoot or small change",
-      "One shoot day — limited angles and formats",
-      "Long post-production before you can publish",
-    ],
-  },
-  ours: {
-    label: "Our production",
-    items: [
-      "From brief to ready assets in days",
-      "Lower cost — no crew, gear, or studio rental",
-      "Photo, video, and avatars from one pipeline",
-      "Easy to refresh when your offer or brand updates",
-    ],
-  },
+export const whyWorkWithUs = {
+  title: "Why work with us",
+  items: [
+    {
+      title: "Lower cost",
+      hook: "Pay less, get more",
+      description:
+        "No crew, studio rental, or gear — campaign-ready visuals at a fraction of a classic shoot budget.",
+      accent: "orange",
+    },
+    {
+      title: "Days, not weeks",
+      hook: "Ship while it’s hot",
+      description:
+        "From brief to publish-ready photo, video, and avatars in days — not another month of waiting.",
+      accent: "sussie",
+    },
+    {
+      title: "Built for reach",
+      hook: "Made to go viral",
+      description:
+        "Formats and hooks designed for social — content that stops the scroll and grows your audience.",
+      accent: "lavender",
+    },
+    {
+      title: "Easy to scale",
+      hook: "Grow without limits",
+      description:
+        "Need more angles, SKUs, or markets? Expand the set fast — no second full production required.",
+      accent: "blue",
+    },
+  ],
 } as const;
 
 export const experienceStats = [

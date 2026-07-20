@@ -2,7 +2,6 @@ import { Hero } from "@/components/hero";
 import { ExperienceStats } from "@/components/experience-stats";
 import { ProductionComparison } from "@/components/production-comparison";
 import { FaqList } from "@/components/faq-list";
-import { ProcessSteps } from "@/components/process-steps";
 import { ProjectCarousel } from "@/components/project-carousel";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { faqItems } from "@/content/faq";
@@ -19,18 +18,6 @@ export default function HomePage() {
 
       <ProductionComparison />
       <ExperienceStats />
-
-      <section
-        id="how-we-work"
-        className="container-site scroll-mt-24 pb-20 text-center md:pb-28"
-      >
-        <ScrollReveal>
-          <h2 className="section-heading mb-10 text-[36px] leading-none tracking-tight md:mb-14 md:text-[52px]">
-            How we work
-          </h2>
-        </ScrollReveal>
-        <ProcessSteps />
-      </section>
 
       <section id="faq" className="container-site scroll-mt-24 pb-20 text-center md:pb-28">
         <ScrollReveal className="mb-4 md:mb-6">

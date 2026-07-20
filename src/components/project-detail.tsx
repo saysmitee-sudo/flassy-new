@@ -38,40 +38,15 @@ export function ProjectDetail({
 
   return (
     <article className="container-site pb-20 pt-12 md:pb-28 md:pt-20">
-      <motion.p
-        className="text-[14px] text-foreground-muted md:text-[16px]"
-        initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease }}
-      >
-        {project.category}
-      </motion.p>
-
-      <motion.h1
-        className="section-heading mt-3 text-[48px] leading-none tracking-tight md:text-[84px]"
-        initial={reduceMotion ? false : { opacity: 0, y: 28 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.65, delay: 0.06, ease }}
-      >
-        {project.title}
-      </motion.h1>
-
-      <motion.p
-        className="mt-6 max-w-2xl text-[16px] leading-relaxed text-foreground-muted md:text-[20px]"
-        initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.55, delay: 0.14, ease }}
-      >
-        {project.summary}
-      </motion.p>
+      <h1 className="sr-only">{project.title}</h1>
 
       {project.cover || project.video ? (
         <motion.div
           ref={heroRef}
-          className="relative mx-auto mt-12 aspect-[9/16] w-full max-w-sm overflow-hidden rounded-[var(--radius-card)] bg-surface md:mt-16 md:max-w-md"
+          className="relative mx-auto aspect-[9/16] w-full max-w-sm overflow-hidden rounded-[var(--radius-card)] bg-surface md:max-w-md"
           initial={reduceMotion ? false : { opacity: 0, y: 36, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.75, delay: 0.2, ease }}
+          transition={{ duration: 0.75, ease }}
         >
           {project.video ? (
             <video
@@ -103,62 +78,18 @@ export function ProjectDetail({
       ) : (
         <motion.div
           className={cn(
-            "mt-12 flex min-h-[320px] items-end rounded-[var(--radius-card)] p-8 md:mt-16 md:min-h-[520px] md:p-12",
+            "mx-auto aspect-[9/16] w-full max-w-sm rounded-[var(--radius-card)] md:max-w-md",
             accentClass[project.accent],
           )}
           initial={reduceMotion ? false : { opacity: 0, y: 36 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2, ease }}
-        >
-          <div className="grid w-full gap-4 text-black/80 md:grid-cols-3">
-            <div>
-              <p className="text-[14px] opacity-70">Role</p>
-              <p className="mt-1 text-[18px] font-medium">{project.role}</p>
-            </div>
-            <div>
-              <p className="text-[14px] opacity-70">Year</p>
-              <p className="mt-1 text-[18px] font-medium">{project.year}</p>
-            </div>
-            <div>
-              <p className="text-[14px] opacity-70">Category</p>
-              <p className="mt-1 text-[18px] font-medium">{project.category}</p>
-            </div>
-          </div>
-        </motion.div>
+          transition={{ duration: 0.7, ease }}
+          aria-hidden
+        />
       )}
 
-      <ScrollRevealGroup className="mt-12 grid gap-6 text-foreground-muted md:mt-16 md:grid-cols-3 md:gap-8">
-        {[
-          { label: "Role", value: project.role },
-          { label: "Year", value: project.year },
-          { label: "Category", value: project.category },
-        ].map((item) => (
-          <ScrollRevealItem key={item.label}>
-            <motion.div whileHover={reduceMotion ? undefined : { y: -3 }}>
-              <p className="text-[14px]">{item.label}</p>
-              <p className="mt-1 text-[18px] font-medium text-foreground">{item.value}</p>
-            </motion.div>
-          </ScrollRevealItem>
-        ))}
-      </ScrollRevealGroup>
-
-      <div className="mt-12 grid gap-8 md:mt-16 md:grid-cols-[1fr_1.2fr] md:gap-16">
-        <ScrollReveal>
-          <h2 className="text-[28px] font-semibold tracking-tight md:text-[36px]">Overview</h2>
-        </ScrollReveal>
-        <div className="space-y-6">
-          {project.body.map((paragraph, index) => (
-            <ScrollReveal key={paragraph} delay={0.06 * index}>
-              <p className="text-[16px] leading-relaxed text-foreground-muted md:text-[18px]">
-                {paragraph}
-              </p>
-            </ScrollReveal>
-          ))}
-        </div>
-      </div>
-
       {videos.length > 0 && (
-        <ScrollRevealGroup className="mt-12 grid gap-4 md:mt-16 md:grid-cols-2">
+        <ScrollRevealGroup className="mt-4 grid gap-4 md:mt-6 md:grid-cols-2">
           {videos.map((src, index) => (
             <ScrollRevealItem key={src}>
               <div className="relative aspect-[9/16] overflow-hidden rounded-[var(--radius-card)] bg-black">
@@ -179,8 +110,8 @@ export function ProjectDetail({
         </ScrollRevealGroup>
       )}
 
-      {gallery.length > 0 ? (
-        <ScrollRevealGroup className="mt-12 grid gap-4 md:mt-16 md:grid-cols-2 lg:grid-cols-3">
+      {gallery.length > 0 && (
+        <ScrollRevealGroup className="mt-4 grid gap-4 md:mt-6 md:grid-cols-2 lg:grid-cols-3">
           {gallery.map((src, index) => (
             <ScrollRevealItem key={src}>
               <TiltCard maxTilt={reduceMotion ? 0 : 5}>
@@ -208,21 +139,7 @@ export function ProjectDetail({
             </ScrollRevealItem>
           ))}
         </ScrollRevealGroup>
-      ) : videos.length === 0 ? (
-        <ScrollRevealGroup className="mt-12 grid gap-4 md:mt-16 md:grid-cols-2">
-          <ScrollRevealItem>
-            <div
-              className={cn(
-                "aspect-[9/16] rounded-[var(--radius-card)] opacity-90",
-                accentClass[project.accent],
-              )}
-            />
-          </ScrollRevealItem>
-          <ScrollRevealItem>
-            <div className="aspect-[9/16] rounded-[var(--radius-card)] bg-surface" />
-          </ScrollRevealItem>
-        </ScrollRevealGroup>
-      ) : null}
+      )}
 
       <ScrollReveal className="mt-16 md:mt-24">
         <nav

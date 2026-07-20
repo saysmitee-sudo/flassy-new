@@ -42,18 +42,13 @@ function ProjectVisual({ project }: { project: Project }) {
 
   return (
     <div
-      className={cn(
-        "absolute inset-0 flex items-end p-6 md:p-8",
-        accentClass[project.accent],
-      )}
+      className={cn("absolute inset-0", accentClass[project.accent])}
+      aria-hidden
     >
       <div className="absolute inset-0 opacity-30">
         <div className="absolute -right-8 top-10 h-40 w-40 rounded-[28px] border border-black/20 bg-white/25 md:h-56 md:w-56" />
         <div className="absolute bottom-16 left-8 h-24 w-16 rounded-2xl border border-black/15 bg-black/20 md:h-36 md:w-24" />
       </div>
-      <p className="relative z-10 max-w-[80%] text-[24px] font-medium leading-none tracking-tight text-black/80 md:text-[32px]">
-        {project.title}
-      </p>
     </div>
   );
 }
@@ -76,7 +71,11 @@ export function ProjectCard({
         : "aspect-[4/3] md:aspect-[5/4]";
 
   return (
-    <Link href={`/projects/${project.slug}`} className={cn("group block", className)}>
+    <Link
+      href={`/projects/${project.slug}`}
+      className={cn("group block", className)}
+      aria-label={project.title}
+    >
       <div
         className={cn(
           "relative overflow-hidden rounded-[var(--radius-card)] bg-surface",
@@ -89,11 +88,10 @@ export function ProjectCard({
         <ProjectVisual project={project} />
       </div>
 
-      <div className="mt-4 flex flex-col items-center gap-1 text-center md:mt-5 md:items-start md:text-left">
+      <div className="mt-4 flex flex-col items-center text-center md:mt-5 md:items-start md:text-left">
         <h3 className="text-[18px] font-semibold tracking-tight transition-transform duration-300 ease-out group-hover:translate-x-1 md:text-[20px]">
           {project.title}
         </h3>
-        <p className="text-[14px] text-foreground-muted md:text-[16px]">{project.category}</p>
       </div>
     </Link>
   );
